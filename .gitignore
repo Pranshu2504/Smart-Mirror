@@ -1,0 +1,50 @@
+############################
+# Dependencies
+############################
+node_modules/
+venv/
+**/venv/
+
+############################
+# Environment Variables
+############################
+.env
+**/.env
+.env.*
+
+############################
+# Build Outputs (All Platforms)
+############################
+build/
+dist/
+coverage/
+android/build/
+android/app/build/
+android/.gradle/
+ios/build/
+ios/Pods/
+DerivedData/
+
+############################
+# Python
+############################
+__pycache__/
+*.py[cod]
+
+############################
+# Logs
+############################
+*.log
+logs/
+
+############################
+# OS
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# IDE / Editor
+############################
+.vscode/
+.idea/
