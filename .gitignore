@@ -13,14 +13,18 @@ venv/
 .env.*
 
 ############################
-# Build Outputs (All Platforms)
+# Build Outputs
 ############################
 build/
 dist/
 coverage/
-android/build/
-android/app/build/
+
+# React Native / Android
 android/.gradle/
+android/app/build/
+android/build/
+
+# React Native / iOS
 ios/build/
 ios/Pods/
 DerivedData/
@@ -48,3 +52,9 @@ Thumbs.db
 ############################
 .vscode/
 .idea/
+
+############################
+# Misc
+############################
+.bundle/
+.expo/
