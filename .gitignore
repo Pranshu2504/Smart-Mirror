@@ -11,6 +11,7 @@ venv/
 .env
 **/.env
 .env.*
+db_test_out.txt
 
 ############################
 # Build Outputs
