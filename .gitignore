@@ -1,58 +1,109 @@
 ############################
 # Dependencies
 ############################
-node_modules/
-venv/
+**/node_modules/
 **/venv/
+**/.venv/
+**/env/
+**/pip-wheel-metadata/
+.pnp
+.pnp.js
 
 ############################
-# Environment Variables
+# Environment Variables & Secrets
 ############################
 .env
 **/.env
 .env.*
+*.env
+**/*.env
+*.pem
+**/android/local.properties
 db_test_out.txt
 
 ############################
-# Build Outputs
+# Build Outputs & Caches
 ############################
-build/
-dist/
-coverage/
+**/build/
+**/dist/
+**/coverage/
+.next/
+out/
+.nuxt
+.vuepress/dist
+.serverless/
+.cache/
 
+############################
 # React Native / Android
-android/.gradle/
-android/app/build/
-android/build/
+############################
+**/.gradle/
+**/android/app/build/
+**/android/build/
+**/android/.cxx/
+**/android/app/.cxx/
+**/android/app/*.apk
+**/android/app/*.aab
+**/android/keystores/release.keystore
 
+############################
 # React Native / iOS
-ios/build/
-ios/Pods/
-DerivedData/
+############################
+**/ios/build/
+**/ios/Pods/
+**/ios/*.xcworkspace/xcuserdata/
+**/ios/*.xcodeproj/xcuserdata/
+**/DerivedData/
+*.mobileprovision
 
 ############################
 # Python
 ############################
-__pycache__/
-*.py[cod]
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/.pytest_cache/
+**/.mypy_cache/
+**/celerybeat-schedule
+*.sqlite3
 
 ############################
 # Logs
 ############################
 *.log
-logs/
+**/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+metro.log
+crash_log_*.txt
+build_log_*.txt
 
 ############################
 # OS
 ############################
 .DS_Store
-Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+[Tt]humbs.db
+$RECYCLE.BIN/
 
 ############################
 # IDE / Editor
 ############################
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+.history/
 
 ############################
 # Misc

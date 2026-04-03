@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
     View,
     StyleSheet,
@@ -7,25 +7,27 @@ import {
     Text,
     Dimensions,
     SafeAreaView,
+    Animated,
+    Easing,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Animated, {
-    useSharedValue,
-    useAnimatedStyle,
-    withTiming,
-} from 'react-native-reanimated';
 
 const { width, height } = Dimensions.get('window');
 
 const WelcomeScreen = ({ navigation }: any) => {
-    const scale = useSharedValue(1);
+    const scale = useRef(new Animated.Value(1)).current;
 
-    const animatedStyle = useAnimatedStyle(() => ({
-        transform: [{ scale: scale.value }],
-    }));
+    const animatedStyle = {
+        transform: [{ scale: scale }],
+    };
 
     const handlePress = () => {
-        scale.value = withTiming(1.15, { duration: 800 });
+        Animated.timing(scale, {
+            toValue: 1.15,
+            duration: 800,
+            easing: Easing.out(Easing.ease),
+            useNativeDriver: true,
+        }).start();
 
         setTimeout(() => {
             navigation.navigate('Auth');
