@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 
-const TryOnScreen = () => {
+const PlannerScreen = () => {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-                <Text style={styles.title}>Try On Screen</Text>
+                <Text style={styles.title}>Planner Screen</Text>
             </View>
         </SafeAreaView>
     );
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     title: { color: '#D4AF37', fontSize: 24, fontWeight: 'bold' },
 });
 
-export default TryOnScreen;
+export default PlannerScreen;

@@ -2,13 +2,14 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import WelcomeScreen from '../screens/WelcomeScreen';
 import AuthScreen from '../screens/AuthScreen';
 import HomeScreen from '../screens/HomeScreen';
-import WardrobeScreen from '../screens/WardrobeScreen';
-import MoodBoardScreen from '../screens/MoodBoardScreen';
+import CommunityScreen from '../screens/CommunityScreen';
+import ClosetScreen from '../screens/ClosetScreen';
 import TryOnScreen from '../screens/TryOnScreen';
-import AddClothingScreen from '../screens/AddClothingScreen';
-import WelcomeScreen from '../screens/WelcomeScreen';
+import PlannerScreen from '../screens/PlannerScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Stack = createNativeStackNavigator();
@@ -22,30 +23,36 @@ function MainTabs() {
                 tabBarStyle: {
                     backgroundColor: '#121212',
                     borderTopColor: '#333',
-                    height: 60,
-                    paddingBottom: 8,
-                    paddingTop: 8
+                    height: 65,
+                    paddingBottom: 10,
+                    paddingTop: 10
                 },
-                tabBarActiveTintColor: '#D4AF37', // Gold for premium feel
+                tabBarActiveTintColor: '#D4AF37',
                 tabBarInactiveTintColor: 'gray',
                 tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
+                    let iconName = 'ellipse-outline';
 
-                    if (route.name === 'Home') {
-                        iconName = focused ? 'home' : 'home-outline';
-                    } else if (route.name === 'Wardrobe') {
+                    if (route.name === 'Community') {
+                        iconName = focused ? 'people' : 'people-outline';
+                    } else if (route.name === 'Closet') {
                         iconName = focused ? 'shirt' : 'shirt-outline';
-                    } else if (route.name === 'MoodBoard') {
-                        iconName = focused ? 'images' : 'images-outline';
+                    } else if (route.name === 'Try On') {
+                        iconName = focused ? 'camera' : 'camera-outline';
+                    } else if (route.name === 'Planner') {
+                        iconName = focused ? 'calendar' : 'calendar-outline';
+                    } else if (route.name === 'Profile') {
+                        iconName = focused ? 'person' : 'person-outline';
                     }
 
                     return <Ionicons name={iconName} size={size} color={color} />;
                 },
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Wardrobe" component={WardrobeScreen} />
-            <Tab.Screen name="MoodBoard" component={MoodBoardScreen} />
+            <Tab.Screen name="Community" component={CommunityScreen} />
+            <Tab.Screen name="Closet" component={ClosetScreen} />
+            <Tab.Screen name="Try On" component={TryOnScreen} />
+            <Tab.Screen name="Planner" component={PlannerScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
         </Tab.Navigator>
     );
 }
@@ -53,13 +60,18 @@ function MainTabs() {
 export default function AppNavigator() {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Welcome">
+            <Stack.Navigator
+                initialRouteName="Welcome"
+                screenOptions={{
+                    headerShown: false,
+                    animation: 'none',
+                }}
+            >
                 <Stack.Screen name="Welcome" component={WelcomeScreen} />
                 <Stack.Screen name="Auth" component={AuthScreen} />
+                <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Main" component={MainTabs} />
-                <Stack.Screen name="TryOn" component={TryOnScreen} />
-                <Stack.Screen name="AddClothing" component={AddClothingScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
-}
+}
